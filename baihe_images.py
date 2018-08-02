@@ -22,9 +22,8 @@ r1 = requests.post(
     url = 'http://my.baihe.com/Getinterlogin/gotoLogin?jsonCallBack=jQuery18308807729283968166_%d&'%(time.time()*1000),
     headers = headers,
     data = {
-        # 'txtLoginEMail': "13163339526",
-        'txtLoginEMail': "18162963383",
-        'txtLoginPwd': "466547071",
+        'txtLoginEMail': "XXXXXXXXXX",  #填写手机号
+        'txtLoginPwd': "XXXXXXXX",   #填写密码
         'chkRememberMe': "",
         'codeId': "",
         'codeValue': '',
@@ -93,11 +92,6 @@ for age in age_list:   #根据年龄来进行分类
                     provinceChn = i['provinceChn']   #省份
                     img_url = i['headPhotoUrl_100_100']  #100*100的图片
                     age_true = i['age']   #填写的年龄
-                    # print(age_true,'age区间:',ages[0],ages[-1])
-
-                    # if age[0] <=age_true<= age[-1]:   #判断填写的年龄是否在查找的区间，
-                        # print(img_urls)
-                        # print(img_url)
                     if img_url not in set(img_urls):   #去重
                         img_urls.append(img_url)
                         img_name = img_url.split('/')
@@ -115,7 +109,6 @@ for age in age_list:   #根据年龄来进行分类
                             f.write(ret_img.content)
                     else:
                         print("已经存在",img_url)
-                    # else:
-                    #     print("Age不在符合区间")
+
             except Exception:
                 pass
